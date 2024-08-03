@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet');
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none; //link li vs deki alt çizgi kaldırıldı 
+    border: none;
+    list-style: none; //li öğelerinin yanındaki noktalar kaldırıldı   
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    font-family: 'Mulish', sans-serif;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.circle-bar {
+    width: 72px;
+    height: 72px;
+    transform: rotate(-90deg);
+
+    svg {
+        --circum: calc(2 * 3.14 * 33.5);
+        --offset: calc(var(--circum) - var(--circum) * 60 / 100);
+
+        circle {
+            stroke-width: 5;
+            stroke: #DAE1F5;
+            fill: none;
+            stroke-dasharray: var(--circum);
+            stroke-linecap: round;
+
+            &:nth-child(2) {
+                stroke: #345ACE;
+                stroke-dashoffset: var(--offset);
+            }
+        }
+    }
+}
