@@ -1,2 +1,2 @@
-# Free Trial Box 👩‍💻
+# Free trial box 👩‍💻
  
