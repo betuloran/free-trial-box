@@ -3,38 +3,57 @@
 * {
     padding: 0;
     margin: 0;
-    text-decoration: none; //link li vs deki alt çizgi kaldırıldı 
+    text-decoration: none; //link li vs deki alt çizgi kaldırıldı
     border: none;
-    list-style: none; //li öğelerinin yanındaki noktalar kaldırıldı   
+    list-style: none; //li öğelerinin yanındaki noktalar kaldırıldı
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
-    font-family: 'Mulish', sans-serif;
+    font-family: "Mulish", sans-serif;
 
     &:focus {
         outline: 0;
     }
 }
 
+body {
+    background: #f7f8fc;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
 .circle-bar {
-    width: 72px;
+    width: 72px; //Div'in genişliğini ve yüksekliğini ayarlar.
     height: 72px;
-    transform: rotate(-90deg);
+    transform: rotate(-90deg); //Tüm bölümü -90 derece döndürür.
 
     svg {
-        --circum: calc(2 * 3.14 * 33.5);
-        --offset: calc(var(--circum) - var(--circum) * 60 / 100);
+        --circum: calc(2 * 3.14 * 33.5 ); //2 * π * r formülü kullanılarak hesaplanan, dairenin çevresi için özel özellik.
+        // --offset: calc(var(--circum) - var(--circum) * 60 / 100); //İlerlemeyi temsil edecek kontur-çizgi kümesinin özel özelliği (%60 olarak)
 
         circle {
-            stroke-width: 5;
-            stroke: #DAE1F5;
             fill: none;
+            stroke-width: 5;
+            stroke: #dae1f5;
             stroke-dasharray: var(--circum);
+            stroke-dashoffset: var(--circum);
             stroke-linecap: round;
 
+            &:nth-child(1) {
+                stroke-dashoffset: 0;
+            }
+
             &:nth-child(2) {
-                stroke: #345ACE;
-                stroke-dashoffset: var(--offset);
+                stroke: #345ace;
+                animation: 1s animateOffset;
+                animation-fill-mode: forwards;
             }
         }
+    }
+}
+
+@keyframes animateOffset {
+    to {
+        stroke-dashoffset: var(--offset);
     }
 }
