@@ -1,4 +1,4 @@
-function circleBar(elemId, percent){
+function circleBar(elemId, percent) {
     let elem = document.getElementById(elemId);
     let circles = elem.querySelectorAll('circle');
     let r = circles[0].getAttribute('r');
