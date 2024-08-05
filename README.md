@@ -18,6 +18,7 @@ Make sure you have the following installed:
   npm install -g sass
 
 ## Installation
+
 1. Clone the repository to your local machine:
    
    ```sh
